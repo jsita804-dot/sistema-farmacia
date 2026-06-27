@@ -38,7 +38,7 @@ function checkLogin() {
     const user = localStorage.getItem('currentUser');
     if (!user && window.location.pathname.includes('dashboard')) {
         alert("Debes iniciar sesión primero");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
     return user ? JSON.parse(user) : null;
 }
