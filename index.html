@@ -80,7 +80,7 @@
             border: 1.5px solid rgba(255, 255, 255, 0.4); 
             border-radius: 14px;
             font-size: 16px;
-            color: #ffffff; 
+            color: #ffffff;
             transition: all 0.3s ease;
             box-sizing: border-box;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -133,21 +133,21 @@
         <div class="logo">💊</div>
         <h2>Control Farmacéutico</h2>
         <p class="subtitle">Gestión de Inventario y Medicamentos</p>
-
+        
         <div id="message"></div>
 
         <form id="loginForm">
             <div class="input-group">
                 <div class="input-wrapper">
                     <span class="input-icon">👤</span>
-                    <input type="text" id="username" placeholder="Usuario" value="admin" required>
+                    <input type="text" id="username" placeholder="Usuario" required>
                 </div>
             </div>
 
             <div class="input-group">
                 <div class="input-wrapper">
                     <span class="input-icon">🔒</span>
-                    <input type="password" id="password" placeholder="Contraseña" value="1234" required>
+                    <input type="password" id="password" placeholder="Contraseña" required>
                 </div>
             </div>
 
@@ -163,6 +163,7 @@
             const password = document.getElementById('password').value.trim();
             const messageDiv = document.getElementById('message');
 
+            // Mantener tu validación local original de admin / 1234
             if (username === "admin" && password === "1234") {
                 localStorage.setItem('currentUser', JSON.stringify({ 
                     username: "admin", 
@@ -179,7 +180,7 @@
                 messageDiv.style.display = "block";
                 messageDiv.style.background = "rgba(248, 215, 218, 0.95)";
                 messageDiv.style.color = "#721c24";
-                messageDiv.textContent = "❌ Credenciales incorrectas para el sistema";
+                messageDiv.textContent = "❌ Credenciales incorrectas para el sistema.";
             }
         });
     </script>
