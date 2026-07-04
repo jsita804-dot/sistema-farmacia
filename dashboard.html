@@ -65,7 +65,7 @@
         }
 
         .sidebar-header h2 {
-            color: #60a5fa; 
+            color: #60a5fa;
             font-size: 22px;
             font-weight: 700;
             margin: 0;
@@ -257,7 +257,7 @@
         }
         
         .welcome-title {
-            margin-bottom: 25px; 
+            margin-bottom: 25px;
             color: #ffffff; 
             text-shadow: 0 2px 8px rgba(0,0,0,0.7);
             font-size: 26px;
@@ -313,7 +313,8 @@
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(8px); 
             -webkit-backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center; justify-content: center;
             z-index: 9999; opacity: 0; pointer-events: none;
             transition: opacity 0.3s ease;
         }
@@ -324,7 +325,8 @@
             background: rgba(255, 255, 255, 0.93);
             border: 1px solid rgba(255, 255, 255, 0.6);
             padding: 30px; border-radius: 20px; width: 400px;
-            text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             transform: scale(0.85); transition: transform 0.3s ease;
         }
 
@@ -345,38 +347,32 @@
         <div class="sidebar">
             <div class="sidebar-header">
                 <h2>💊 FarmaControl</h2>
-                <p class="user-info" id="user-info">admin - ...</p>
+                <p class="user-info" id="user-info">Cargando...</p>
             </div>
          
             <div class="menu-container">
-                <a href="#" class="menu-item active" id="btn-home" onclick="showSection('home', 'Panel Principal')"><span>🏠</span> Panel Principal</a>
+                <a href="#" class="menu-item active" id="btn-home" onclick="window.showSection('home', 'Panel Principal')"><span>🏠</span> Panel Principal</a>
                 
                 <div class="menu-category">Gestión de Ventas</div>
-                <a href="#" class="menu-item" onclick="showSection('pos-sales', 'Punto de Venta (POS) - Nueva Venta')"><span>🛒</span> Nueva Venta (POS)</a>
-                <a href="#" class="menu-item" onclick="showSection('sales-history', 'Historial y Registro de Ventas')"><span>📜</span> Historial de Ventas</a>
+                <a href="#" class="menu-item" onclick="window.showSection('pos-sales', 'Punto de Venta (POS) - Nueva Venta')"><span>🛒</span> Nueva Venta (POS)</a>
+                <a href="#" class="menu-item" onclick="window.showSection('sales-history', 'Historial y Registro de Ventas')"><span>📜</span> Historial de Ventas</a>
 
                 <div class="menu-category">Inventario de Fármacos</div>
-                <a href="#" class="menu-item" onclick="showSection('inventory', 'Inventario General de Productos')"><span>📦</span> Ver Inventario Completo</a>
-                <a href="#" class="menu-item" onclick="showSection('add-product', 'Agregar Nuevo Medicamento')"><span>➕</span> Agregar Producto</a>
-                <a href="#" class="menu-item" onclick="showSection('update-stock', 'Actualizar Stock y Ubicación')"><span>🔄</span> Actualizar Stock / Lote</a>
-                <a href="#" class="menu-item" onclick="showSection('expiry-control', 'Control de Vencimientos Próximos')"><span>⏳</span> Alertas de Vencimiento</a>
-                <a href="#" class="menu-item" onclick="showSection('manage-categories', 'Administrar Categorías')"><span>🏷️</span> Categorías</a>
-
-                <div class="menu-category">Administración</div>
-                <a href="#" class="menu-item" onclick="showSection('reports', 'Reportes de Ventas y Rendimiento')"><span>📊</span> Reportes Analíticos</a>
+                <a href="#" class="menu-item" onclick="window.showSection('inventory', 'Inventario General de Productos')"><span>📦</span> Ver Inventario Completo</a>
+                <a href="#" class="menu-item" onclick="window.showSection('add-product', 'Agregar Nuevo Medicamento')"><span>➕</span> Agregar Producto</a>
             </div>
             
-            <div onclick="openLogoutModal()" class="logout-btn">
+            <div onclick="window.openLogoutModal()" class="logout-btn">
                 <span>🚪</span> Cerrar Sesión
             </div>
         </div>
 
         <div class="main-content">
+          
             <div class="header">
                 <h1 id="page-title">Panel Principal</h1>
             </div>
 
-            <!-- SECCIÓN: PANEL PRINCIPAL -->
             <div id="section-home" class="section">
                 <h2 class="welcome-title">¡Bienvenido al Turno de Control!</h2>
                 
@@ -389,25 +385,20 @@
                         <h3>Ventas Registradas</h3>
                         <div class="stat-number" style="color:#16a34a;" id="stat-total-sales">0</div>
                     </div>
-                    <div class="stat-card">
-                        <h3>Lotes Próximos a Vencer</h3>
-                        <div class="stat-number" style="color:#b45309;" id="stat-expiry-alerts">0</div>
-                    </div>
                 </div>
 
                 <div class="card">
                     <h3>¿Qué operación deseas procesar hoy?</h3>
-                    <p>Utiliza la barra lateral interactiva para facturar en el Punto de Venta (POS), auditar las fechas de expiración o dar de alta nuevos productos en los estantes del almacén central.</p>
+                    <p>Utiliza la barra lateral interactiva para facturar en el Punto de Venta (POS) o dar de alta nuevos productos en los estantes del almacén central.</p>
                 </div>
             </div>
 
-            <!-- SECCIÓN: NUEVA VENTA (POS) -->
             <div id="section-pos-sales" class="section" style="display:none;">
                 <div class="pos-grid">
                     <div class="card">
                         <h3>🛒 Carrito del Punto de Venta</h3>
-                        <p style="margin-bottom: 15px;">Selecciona el lote y la cantidad para ir armando el ticket del cliente.</p>
-                        
+                        <p style="margin-bottom: 15px;">Selecciona el producto y la cantidad para ir armando el ticket del cliente.</p>
+         
                         <div style="display:flex; gap:15px; margin-bottom: 20px; align-items:flex-end;">
                             <div style="flex:2;">
                                 <label style="font-weight:600; color:#1e3a8a;">Seleccionar Medicamento:</label>
@@ -417,13 +408,12 @@
                                 <label style="font-weight:600; color:#1e3a8a;">Cantidad:</label>
                                 <input type="number" id="pos-qty" class="farma-input" min="1" value="1">
                             </div>
-                            <button onclick="addItemToCart()" style="padding:10px 20px; background:#2563eb; color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer;">Agregar</button>
+                            <button onclick="window.addItemToCart()" style="padding:10px 20px; background:#2563eb; color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer;">Agregar</button>
                         </div>
 
                         <table class="farma-table">
                             <thead>
                                 <tr>
-                                    <th>Lote</th>
                                     <th>Medicamento</th>
                                     <th>Precio U.</th>
                                     <th>Cant.</th>
@@ -432,7 +422,7 @@
                                 </tr>
                             </thead>
                             <tbody id="cart-table-body">
-                                <tr><td colspan="6" style="text-align:center; color:#64748b;">El carrito está vacío</td></tr>
+                                <tr><td colspan="5" style="text-align:center; color:#64748b;">El carrito está vacío</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -451,12 +441,11 @@
                                 <span style="color:#16a34a;" id="pos-total-display">$0.00</span>
                             </div>
                         </div>
-                        <button onclick="checkoutCart()" style="width:100%; padding:15px; background:#16a34a; color:white; border:none; border-radius:10px; font-weight:700; font-size:16px; cursor:pointer; margin-top:30px;">📄 Registrar y Cobrar Venta</button>
+                        <button onclick="window.checkoutCart()" style="width:100%; padding:15px; background:#16a34a; color:white; border:none; border-radius:10px; font-weight:700; font-size:16px; cursor:pointer; margin-top:30px;">📄 Registrar y Cobrar Venta</button>
                     </div>
                 </div>
             </div>
 
-            <!-- SECCIÓN: HISTORIAL DE VENTAS -->
             <div id="section-sales-history" class="section" style="display:none;">
                 <div class="card">
                     <h3>📜 Historial y Registro de Ventas</h3>
@@ -478,7 +467,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN: VER INVENTARIO COMPLETO -->
             <div id="section-inventory" class="section" style="display:none;">
                 <div class="card">
                     <h3>📦 Listado General de Fármacos</h3>
@@ -487,7 +475,6 @@
                         <table class="farma-table">
                             <thead>
                                 <tr>
-                                    <th>Código/Lote</th>
                                     <th>Medicamento</th>
                                     <th>Categoría</th>
                                     <th>Precio</th>
@@ -502,7 +489,6 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN: AGREGAR PRODUCTO -->
             <div id="section-add-product" class="section" style="display:none;">
                 <div class="card" style="max-width: 650px; margin: 0 auto;">
                     <h3>➕ FrmAltaMedicamentos</h3>
@@ -512,15 +498,9 @@
                             <label style="font-weight:600; color:#1e3a8a;">Nombre del Medicamento:</label>
                             <input type="text" id="prod-name" class="farma-input" placeholder="Ej. Paracetamol 500mg" required>
                         </div>
-                        <div style="display:flex; gap:15px; margin-bottom: 15px;">
-                            <div style="flex:1;">
-                                <label style="font-weight:600; color:#1e3a8a;">Código de Barra / Lote:</label>
-                                <input type="text" id="prod-code" class="farma-input" placeholder="Ej. LOT99281" required>
-                            </div>
-                            <div style="flex:1;">
-                                <label style="font-weight:600; color:#1e3a8a;">Categoría:</label>
-                                <select id="prod-category" class="farma-input" style="background: white;"></select>
-                            </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight:600; color:#1e3a8a;">Categoría:</label>
+                            <select id="prod-category" class="farma-input" style="background: white;"></select>
                         </div>
                         <div style="display:flex; gap:15px; margin-bottom: 20px;">
                             <div style="flex:1;">
@@ -541,96 +521,41 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN: ACTUALIZAR STOCK DIRECTO -->
-            <div id="section-update-stock" class="section" style="display:none;">
-                <div class="card" style="max-width: 550px; margin: 0 auto;">
-                    <h3>🔄 FrmActualizarStockLotes</h3>
-                    <p style="margin-bottom: 20px;">Modifica rápidamente las existencias de un fármaco seleccionando su código de lote.</p>
-                    <form id="updateStockForm">
-                        <div style="margin-bottom: 15px;">
-                            <label style="font-weight:600; color:#1e3a8a;">Seleccionar Lote / Producto:</label>
-                            <select id="update-select-product" class="farma-input" style="background: white;" required></select>
-                        </div>
-                        <div style="margin-bottom: 15px;">
-                            <label style="font-weight:600; color:#1e3a8a;">Tipo de Ajuste:</label>
-                            <select id="update-action" class="farma-input" style="background: white;">
-                                <option value="add">➕ Adicionar al Inventario (+)</option>
-                                <option value="set">📝 Establecer Cantidad Fija (=)</option>
-                                <option value="sub">➖ Restar por Ajuste Manual (-)</option>
-                            </select>
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <label style="font-weight:600; color:#1e3a8a;">Cantidad de Unidades:</label>
-                            <input type="number" id="update-qty" class="farma-input" min="1" placeholder="Ej. 20" required>
-                        </div>
-                        <button type="submit" style="width:100%; padding:12px; background:#2563eb; color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer;">Aplicar Cambio de Stock</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- SECCIÓN: CONTROL DE VENCIMIENTOS -->
-            <div id="section-expiry-control" class="section" style="display:none;">
-                <div class="card">
-                    <h3>⏳ FrmAlertasVencimiento (Fármacos en Riesgo)</h3>
-                    <p style="margin-bottom: 20px;">Análisis predictivo de lotes ordenados por proximidad de caducidad.</p>
-                    <div style="overflow-x: auto;">
-                        <table class="farma-table">
-                            <thead>
-                                <tr>
-                                    <th>Código/Lote</th>
-                                    <th>Medicamento</th>
-                                    <th>Fecha Vencimiento</th>
-                                    <th>Días Restantes</th>
-                                    <th>Estado / Gravedad</th>
-                                </tr>
-                            </thead>
-                            <tbody id="expiry-table-body"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECCIÓN: ADMINISTRAR CATEGORÍAS -->
-            <div id="section-manage-categories" class="section" style="display:none;">
-                <div class="card" style="max-width: 600px; margin: 0 auto;">
-                    <h3>🏷️ FrmAccionesTerapeuticas</h3>
-                    <p style="margin-bottom: 15px;">Administrar las familias o clasificaciones de medicamentos.</p>
-                    <form id="addCategoryForm" style="display:flex; gap:10px; margin-bottom: 20px;">
-                        <input type="text" id="new-category-name" class="farma-input" style="margin-top:0;" placeholder="Ej. Analgésico, Antibiótico, Psicotrópico..." required>
-                        <button type="submit" style="padding:10px 15px; background:#16a34a; color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer; white-space:nowrap;">➕ Añadir</button>
-                    </form>
-                    <table class="farma-table">
-                        <thead>
-                            <tr>
-                                <th>Nombre de la Categoría</th>
-                                <th style="width: 80px; text-align: center;">Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody id="categories-table-body"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- MÓDULOS RESTANTES EN DESARROLLO -->
-            <div id="section-reports" class="section" style="display:none;"><div class="card"><h3>FrmReportesAnaliticos</h3><p>En desarrollo...</p></div></div>
         </div>
     </div>
 
-    <!-- MODAL DE LOGOUT -->
     <div class="modal-overlay" id="logoutModal">
         <div class="modal-box">
             <div class="modal-icon">🚪</div>
             <h3>¿Cerrar Sesión?</h3>
             <p>¿Estás seguro de que deseas salir del sistema?</p>
             <div class="modal-buttons">
-                <button class="modal-btn btn-confirm" onclick="confirmLogout()">Sí, salir</button>
-                <button class="modal-btn btn-cancel" onclick="closeLogoutModal()">Cancelar</button>
+                <button class="modal-btn btn-confirm" onclick="window.confirmLogout()">Sí, salir</button>
+                <button class="modal-btn btn-cancel" onclick="window.closeLogoutModal()">Cancelar</button>
             </div>
         </div>
     </div>
 
-    <script>
-        // --- 1. GESTIÓN DE SESIÓN ---
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { 
+            getFirestore, collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot 
+        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // Tus credenciales configuradas
+        const firebaseConfig = {
+            apiKey: "AIzaSyA6cemyC5XNYM1tutagHLzL39zRbj5rGdc",
+            authDomain: "farmaciaapp-c8379.firebaseapp.com",
+            projectId: "farmaciaapp-c8379",
+            storageBucket: "farmaciaapp-c8379.firebasestorage.app",
+            messagingSenderId: "379582262370",
+            appId: "1:379582262370:web:e47581527202ff3830753b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // --- 1. CONTROL DE SESIÓN LOCAL ---
         function checkLogin() {
             const user = localStorage.getItem('currentUser');
             if (!user) {
@@ -642,8 +567,34 @@
         const user = checkLogin();
         if (user) document.getElementById('user-info').textContent = `${user.username} - ${user.role}`;
 
-        // --- 2. NAVEGACIÓN ---
-        function showSection(sectionId, titleText) {
+        // --- 2. VARIABLES GLOBALES (Se alimentan desde Firestore) ---
+        let dbProducts = [];
+        let dbSales = [];
+        let dbCategories = ['Analgésico', 'Antibiótico', 'Antiinflamatorio', 'Cardiovascular', 'Psicotrópico', 'Otro'];
+        let currentCart = [];
+
+        // --- 3. ESCUCHADORES EN TIEMPO REAL (Realtime Listeners) ---
+        onSnapshot(collection(db, "products"), (snapshot) => {
+            dbProducts = [];
+            snapshot.forEach((doc) => {
+                dbProducts.push({ id: doc.id, ...doc.data() });
+            });
+            updateDashboardStats();
+            renderInventory();
+            populatePosSelect();
+        });
+
+        onSnapshot(collection(db, "sales"), (snapshot) => {
+            dbSales = [];
+            snapshot.forEach((doc) => {
+                dbSales.push({ id: doc.id, ...doc.data() });
+            });
+            updateDashboardStats();
+            renderSalesHistory();
+        });
+
+        // --- 4. NAVEGACIÓN ---
+        window.showSection = function(sectionId, titleText) {
             document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
             const targetSection = document.getElementById(`section-${sectionId}`);
             if (targetSection) targetSection.style.display = 'block';
@@ -653,38 +604,10 @@
             const clickedMenuItem = document.querySelector(`[onclick*="showSection('${sectionId}'"]`);
             if (clickedMenuItem) clickedMenuItem.classList.add('active');
 
-            // Cargas Dinámicas de Módulos
             if (sectionId === 'inventory') renderInventory();
             if (sectionId === 'add-product') populateAddProductSelects();
-            if (sectionId === 'update-stock') populateSelect('update-select-product');
-            if (sectionId === 'expiry-control') renderExpiryAlerts();
             if (sectionId === 'pos-sales') { populatePosSelect(); renderCart(); }
             if (sectionId === 'sales-history') renderSalesHistory();
-            if (sectionId === 'manage-categories') renderCategories();
-        }
-
-        // --- 3. ALMACENAMIENTO DE DATOS ---
-        let dbProducts = JSON.parse(localStorage.getItem('farma_products')) || [
-            { code: 'LOT1021', name: 'Ibuprofeno 400mg', category: 'Analgésico', price: 4.50, stock: 45, expiry: '2026-12-01' },
-            { code: 'LOT4042', name: 'Amoxicilina 500mg', category: 'Antibiótico', price: 12.00, stock: 5, expiry: '2026-08-15' },
-            { code: 'LOT0911', name: 'Clonazepam 2mg', category: 'Psicotrópico', price: 25.00, stock: 12, expiry: '2026-11-20' }
-        ];
-
-        let dbCategories = JSON.parse(localStorage.getItem('farma_categories')) || ['Analgésico', 'Antibiótico', 'Antiinflamatorio', 'Cardiovascular', 'Psicotrópico', 'Otro'];
-        let dbSales = JSON.parse(localStorage.getItem('farma_sales')) || [];
-        let currentCart = [];
-
-        function saveProducts() { localStorage.setItem('farma_products', JSON.stringify(dbProducts)); updateDashboardStats(); }
-        function saveSales() { localStorage.setItem('farma_sales', JSON.stringify(dbSales)); updateDashboardStats(); }
-        function saveCategories() { localStorage.setItem('farma_categories', JSON.stringify(dbCategories)); }
-
-        function populateSelect(selectId) {
-            const select = document.getElementById(selectId);
-            if (!select) return;
-            select.innerHTML = '<option value="">-- Selecciona un lote --</option>';
-            dbProducts.forEach(p => {
-                select.innerHTML += `<option value="${p.code}">${p.code} - ${p.name} (Stock: ${p.stock})</option>`;
-            });
         }
 
         function populateAddProductSelects() {
@@ -695,73 +618,57 @@
             }
         }
 
-        // --- 4. LISTAR INVENTARIO ---
+        // --- 5. RENDERIZAR INVENTARIO ---
         function renderInventory() {
             const tbody = document.getElementById('inventory-table-body');
             if (!tbody) return;
             tbody.innerHTML = '';
-            dbProducts.forEach((product, index) => {
+            dbProducts.forEach((product) => {
                 const tr = document.createElement('tr');
                 const stockStyle = product.stock <= 10 ? 'color: #dc2626; font-weight: bold;' : '';
 
                 tr.innerHTML = `
-                    <td>${product.code}</td>
                     <td style="font-weight:600;">${product.name}</td>
                     <td><span style="font-size:13px; color:#475569;">${product.category}</span></td>
                     <td>$${parseFloat(product.price).toFixed(2)}</td>
                     <td style="${stockStyle}">${product.stock}</td>
                     <td>${product.expiry}</td>
-                    <td><button onclick="deleteProduct(${index})" style="background:#dc2626; color:white; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12px;">Eliminar</button></td>
+                    <td><button onclick="window.deleteProduct('${product.id}')" style="background:#dc2626; color:white; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12px;">Eliminar</button></td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
-        function deleteProduct(index) {
-            if(confirm("¿Seguro que deseas eliminar este producto por completo?")) {
-                dbProducts.splice(index, 1);
-                saveProducts();
-                renderInventory();
+        window.deleteProduct = async function(id) {
+            if(confirm("¿Seguro que deseas eliminar este producto por completo de la base de datos?")) {
+                try {
+                    await deleteDoc(doc(db, "products", id));
+                } catch (e) {
+                    alert("Error al borrar producto: " + e.message);
+                }
             }
         }
 
-        // --- 5. AGREGAR PRODUCTO ---
-        document.getElementById('addProductForm')?.addEventListener('submit', function(e) {
+        // --- 6. AGREGAR PRODUCTO (A Firestore) ---
+        document.getElementById('addProductForm')?.addEventListener('submit', async function(e) {
             e.preventDefault();
-            const newProduct = {
-                code: document.getElementById('prod-code').value.trim(),
-                name: document.getElementById('prod-name').value.trim(),
-                category: document.getElementById('prod-category').value,
-                price: parseFloat(document.getElementById('prod-price').value),
-                stock: parseInt(document.getElementById('prod-stock').value),
-                expiry: document.getElementById('prod-expiry').value
-            };
-            if (dbProducts.some(p => p.code === newProduct.code)) return alert("❌ Error: Código de lote duplicado.");
-            dbProducts.push(newProduct);
-            saveProducts();
-            this.reset();
-            alert("✅ ¡Producto guardado con éxito!");
-            showSection('inventory', 'Inventario General de Productos');
-        });
+            const name = document.getElementById('prod-name').value.trim();
+            const category = document.getElementById('prod-category').value;
+            const price = parseFloat(document.getElementById('prod-price').value);
+            const stock = parseInt(document.getElementById('prod-stock').value);
+            const expiry = document.getElementById('prod-expiry').value;
 
-        // --- 6. ACTUALIZAR STOCK MANUAL ---
-        document.getElementById('updateStockForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const code = document.getElementById('update-select-product').value;
-            const action = document.getElementById('update-action').value;
-            const qty = parseInt(document.getElementById('update-qty').value);
-            const product = dbProducts.find(p => p.code === code);
-            if (product) {
-                if (action === 'add') product.stock += qty;
-                else if (action === 'set') product.stock = qty;
-                else if (action === 'sub') {
-                    if (product.stock - qty < 0) return alert("❌ Stock insuficiente.");
-                    product.stock -= qty;
-                }
-                saveProducts();
+            if (dbProducts.some(p => p.name.toLowerCase() === name.toLowerCase())) {
+                return alert("❌ Error: Este medicamento ya existe.");
+            }
+  
+            try {
+                await addDoc(collection(db, "products"), { name, category, price, stock, expiry });
                 this.reset();
-                alert("🔄 Stock ajustado correctamente.");
-                showSection('inventory', 'Inventario General de Productos');
+                alert("✅ ¡Producto guardado en Firebase con éxito!");
+                window.showSection('inventory', 'Inventario General de Productos');
+            } catch (err) {
+                alert("Error al guardar: " + err.message);
             }
         });
 
@@ -769,22 +676,22 @@
         function populatePosSelect() {
             const select = document.getElementById('pos-select-product');
             if (!select) return;
-            select.innerHTML = '<option value="">-- Buscar Fármaco por Lote --</option>';
-            dbProducts.forEach(p => {
+            select.innerHTML = '<option value="">-- Buscar Fármaco --</option>';
+            dbProducts.forEach((p) => {
                 if(p.stock > 0) {
-                    select.innerHTML += `<option value="${p.code}">${p.code} - ${p.name} ($${p.price.toFixed(2)} | Stock: ${p.stock})</option>`;
+                    select.innerHTML += `<option value="${p.id}">${p.name} ($${p.price.toFixed(2)} | Stock: ${p.stock})</option>`;
                 }
             });
         }
 
-        function addItemToCart() {
-            const code = document.getElementById('pos-select-product').value;
+        window.addItemToCart = function() {
+            const id = document.getElementById('pos-select-product').value;
             const qty = parseInt(document.getElementById('pos-qty').value);
-            if(!code) return alert("Seleccione un fármaco.");
+            if(id === "") return alert("Seleccione un fármaco.");
             if(qty <= 0 || isNaN(qty)) return alert("Cantidad no válida.");
-
-            const product = dbProducts.find(p => p.code === code);
-            const cartItem = currentCart.find(item => item.code === code);
+            
+            const product = dbProducts.find(p => p.id === id);
+            const cartItem = currentCart.find(item => item.id === id);
             const currentCartQty = cartItem ? cartItem.qty : 0;
 
             if (product.stock < (currentCartQty + qty)) {
@@ -796,7 +703,7 @@
                 cartItem.subtotal = cartItem.qty * cartItem.price;
             } else {
                 currentCart.push({
-                    code: product.code,
+                    id: product.id,
                     name: product.name,
                     price: product.price,
                     qty: qty,
@@ -813,7 +720,7 @@
             tbody.innerHTML = '';
             
             if(currentCart.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:#64748b;">El carrito está vacío</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#64748b;">El carrito está vacío</td></tr>';
                 document.getElementById('pos-total-display').textContent = '$0.00';
                 return;
             }
@@ -823,55 +730,57 @@
                 total += item.subtotal;
                 tbody.innerHTML += `
                     <tr>
-                        <td>${item.code}</td>
                         <td>${item.name}</td>
                         <td>$${item.price.toFixed(2)}</td>
                         <td>${item.qty}</td>
                         <td>$${item.subtotal.toFixed(2)}</td>
-                        <td><button onclick="removeCartItem(${index})" style="background:#ef4444; color:white; border:none; padding:3px 8px; border-radius:4px; cursor:pointer;">❌</button></td>
+                        <td><button onclick="window.removeCartItem(${index})" style="background:#ef4444; color:white; border:none; padding:3px 8px; border-radius:4px; cursor:pointer;">❌</button></td>
                     </tr>
                 `;
             });
-            
             document.getElementById('pos-total-display').textContent = `$${total.toFixed(2)}`;
         }
 
-        function removeCartItem(index) {
+        window.removeCartItem = function(index) {
             currentCart.splice(index, 1);
             renderCart();
         }
 
-        function checkoutCart() {
+        window.checkoutCart = async function() {
             if(currentCart.length === 0) return alert("El carrito está vacío.");
             const client = document.getElementById('pos-client').value.trim() || "Público General";
             
-            // Descontar Stock
-            currentCart.forEach(item => {
-                const product = dbProducts.find(p => p.code === item.code);
-                if(product) product.stock -= item.qty;
-            });
+            try {
+                for (const item of currentCart) {
+                    const product = dbProducts.find(p => p.id === item.id);
+                    if(product) {
+                        const productRef = doc(db, "products", item.id);
+                        await updateDoc(productRef, {
+                            stock: product.stock - item.qty
+                        });
+                    }
+                }
 
-            const facturaId = 'FACT-' + Math.floor(100000 + Math.random() * 900000);
+                const facturaId = 'FACT-' + Math.floor(100000 + Math.random() * 900000);
+                
+                await addDoc(collection(db, "sales"), {
+                    facturaId: facturaId,
+                    date: new Date().toLocaleString(),
+                    client: client,
+                    itemsCount: currentCart.reduce((sum, i) => sum + i.qty, 0),
+                    total: currentCart.reduce((sum, i) => sum + i.subtotal, 0)
+                });
 
-            const newSale = {
-                id: facturaId,
-                date: new Date().toLocaleString(),
-                client: client,
-                itemsCount: currentCart.reduce((sum, i) => sum + i.qty, 0),
-                total: currentCart.reduce((sum, i) => sum + i.subtotal, 0)
-            };
+                currentCart = [];
+                document.getElementById('pos-client').value = "Público General";
+                renderCart();
+                
+                alert(`✅ Venta procesada con éxito en la nube. ID: ${facturaId}`);
+                window.showSection('sales-history', 'Historial y Registro de Ventas');
 
-            dbSales.push(newSale);
-            saveSales();
-            saveProducts();
-
-            // Limpieza
-            currentCart = [];
-            document.getElementById('pos-client').value = "Público General";
-            renderCart();
-            
-            alert(`✅ Venta procesada con éxito. ID: ${facturaId}`);
-            showSection('sales-history', 'Historial y Registro de Ventas');
+            } catch (err) {
+                alert("Error al procesar la venta: " + err.message);
+            }
         }
 
         // --- 8. HISTORIAL DE VENTAS ---
@@ -883,116 +792,33 @@
                 tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#64748b;">No hay transacciones registradas</td></tr>';
                 return;
             }
-            [...dbSales].reverse().forEach(sale => {
+            const sortedSales = [...dbSales].sort((a,b) => new Date(b.date) - new Date(a.date));
+            sortedSales.forEach(sale => {
                 tbody.innerHTML += `
                     <tr>
-                        <td style="font-weight:bold; color:#2563eb;">${sale.id}</td>
+                        <td style="font-weight:bold; color:#2563eb;">${sale.facturaId || 'S/N'}</td>
                         <td>${sale.date}</td>
                         <td>${sale.client}</td>
                         <td>${sale.itemsCount} u.</td>
-                        <td style="font-weight:bold; color:#16a34a;">$${sale.total.toFixed(2)}</td>
+                        <td style="font-weight:bold; color:#16a34a;">$${parseFloat(sale.total).toFixed(2)}</td>
                     </tr>
                 `;
             });
         }
 
-        // --- 9. CONTROL DE VENCIMIENTOS ---
-        function renderExpiryAlerts() {
-            const tbody = document.getElementById('expiry-table-body');
-            if (!tbody) return;
-            tbody.innerHTML = '';
-            let sortedProducts = [...dbProducts].sort((a, b) => new Date(a.expiry) - new Date(b.expiry));
-
-            sortedProducts.forEach(product => {
-                const expiryDate = new Date(product.expiry + "T00:00:00");
-                const today = new Date(); today.setHours(0,0,0,0);
-                const diffTime = expiryDate - today;
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                
-                let badge = '', trStyle = '';
-                if (diffDays <= 0) {
-                    badge = `<span style="background:#dc2626; color:white; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:bold;">🚨 CADUCADO</span>`;
-                    trStyle = 'background: rgba(220, 38, 38, 0.08);';
-                } else if (diffDays <= 30) {
-                    badge = `<span style="background:#ea580c; color:white; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:bold;">⚠️ Crítico (<30d)</span>`;
-                    trStyle = 'background: rgba(234, 88, 12, 0.05);';
-                } else if (diffDays <= 90) {
-                    badge = `<span style="background:#ca8a04; color:white; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:bold;">⏳ Preventivo (<90d)</span>`;
-                } else {
-                    badge = `<span style="background:#16a34a; color:white; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:bold;">✅ Seguro</span>`;
-                }
-
-                tbody.innerHTML += `
-                    <tr style="${trStyle}">
-                        <td>${product.code}</td>
-                        <td style="font-weight:600;">${product.name}</td>
-                        <td>${product.expiry}</td>
-                        <td>${diffDays <= 0 ? 'Hace ' + Math.abs(diffDays) + ' días' : diffDays + ' días'}</td>
-                        <td>${badge}</td>
-                    </tr>
-                `;
-            });
-        }
-
-        // --- 10. GESTIÓN ÚNICA DE CATEGORÍAS ---
-        function renderCategories() {
-            const catTbody = document.getElementById('categories-table-body');
-            if (catTbody) {
-                catTbody.innerHTML = '';
-                dbCategories.forEach((cat, index) => {
-                    catTbody.innerHTML += `
-                        <tr>
-                            <td style="font-weight: 500; color:#1e293b;">${cat}</td>
-                            <td style="text-align:center;"><button onclick="deleteCategory(${index})" style="background:#ef4444; color:white; border:none; padding:4px 8px; border-radius:6px; cursor:pointer; font-size:12px;">❌</button></td>
-                        </tr>
-                    `;
-                });
-            }
-        }
-
-        document.getElementById('addCategoryForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const input = document.getElementById('new-category-name');
-            const value = input.value.trim();
-            if(!value) return;
-            if(dbCategories.map(c => c.toLowerCase()).includes(value.toLowerCase())) return alert("Esta categoría ya existe.");
-            
-            dbCategories.push(value);
-            saveCategories();
-            input.value = '';
-            renderCategories();
-        });
-
-        function deleteCategory(index) {
-            if(confirm(`¿Estás seguro de eliminar la categoría "${dbCategories[index]}"?`)) {
-                dbCategories.splice(index, 1);
-                saveCategories();
-                renderCategories();
-            }
-        }
-
-        // --- 11. ESTADÍSTICAS DEL DASHBOARD ---
+        // --- 9. ESTADÍSTICAS DEL DASHBOARD ---
         function updateDashboardStats() {
             if (document.getElementById('stat-total-products')) document.getElementById('stat-total-products').textContent = dbProducts.length;
             if (document.getElementById('stat-total-sales')) document.getElementById('stat-total-sales').textContent = dbSales.length;
-            if (document.getElementById('stat-expiry-alerts')) {
-                document.getElementById('stat-expiry-alerts').textContent = dbProducts.filter(p => {
-                    const diff = Math.ceil((new Date(p.expiry + "T00:00:00") - new Date().setHours(0,0,0,0)) / (1000 * 60 * 60 * 24));
-                    return diff <= 90;
-                }).length;
-            }
         }
 
-        // --- 12. CERRAR SESIÓN ---
-        function openLogoutModal() { document.getElementById('logoutModal').classList.add('active'); }
-        function closeLogoutModal() { document.getElementById('logoutModal').classList.remove('active'); }
-        function confirmLogout() { localStorage.removeItem('currentUser'); window.location.href = "index.html"; }
+        // --- 10. CERRAR SESIÓN ---
+        window.openLogoutModal = function() { document.getElementById('logoutModal').classList.add('active'); }
+        window.closeLogoutModal = function() { document.getElementById('logoutModal').classList.remove('active'); }
+        window.confirmLogout = function() { localStorage.removeItem('currentUser'); window.location.href = "index.html"; }
 
-        // INICIALIZACIÓN GLOBAL
-        document.addEventListener("DOMContentLoaded", () => {
-            updateDashboardStats();
-            renderInventory();
-        });
+        // Inicializar vistas al arrancar
+        window.showSection('home', 'Panel Principal');
     </script>
 </body>
 </html>
